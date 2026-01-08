@@ -1,0 +1,442 @@
+/* Universal Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* Body Styles */
+body {
+  background-color: #F8F8F8;
+  color: #C0C0C0;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(to right, #D4AF37, #D4AF37);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #D4AF37;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1A1A1A;
+  letter-spacing: 2px;
+}
+
+header h1 a {
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+header h1 a:hover {
+  color: #2C2C2C; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #2C2C2C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f2eeee;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.search-bar {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+
+/* Main Content Styles */
+.main-content {
+  /* 增加 padding-top 以避開 header */
+  padding-top: 90px; /* 這裡的值可以根據 header 的實際高度和你想留的空間調整 */
+  /* 增加 margin-left 以避開 sidebar */
+  margin-left: 240px; /* 這裡的值可以根據 sidebar 的實際寬度和你想留的空間調整 */
+  padding-right: 20px; /* 保留右側 padding */
+  padding-bottom: 40px; /* 保留底部 padding */
+}
+
+/* Product Specific Styles (from File One) */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 0 20px #aeaeae;
+  flex-wrap: wrap;
+}
+
+.product-image {
+  flex: 1 1 300px;
+}
+
+.product-image img {
+  width: 350px;
+  height: 525px;
+  object-fit: contain;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-info {
+  flex: 2 1 400px;
+}
+
+.product-info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #2C2C2C;
+}
+
+.product-info p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.product-info .price {
+  font-size: 1.3rem;
+  color: #D4AF37;
+  font-weight: bold;
+}
+
+.description {
+  color: #666666;     /* 奶金色 */
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.back-btn, .add-to-cart-btn, .wishlist-btn {
+  display: inline-flex;    /* 改用 inline-flex 讓圖示與文字垂直居中 */
+  align-items: center;
+  justify-content: center;
+  height: 42px;            /* 強制設定相同高度 */
+  margin-top: 1rem;
+  padding: 0 1.2rem;       /* 左右內距 */
+  background: #2C2C2C;
+  color: #f2eeee;
+  border: 2px solid #2C2C2C; /* 統一邊框寬度，避免縮放感 */
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(44, 44, 44, 0.3);
+  transition: all 0.3s;
+  vertical-align: middle;  /* 確保按鈕水平對齊 */
+}
+
+.back-btn:hover, .add-to-cart-btn:hover {
+  background: #D4AF37;
+}
+
+.quantity-controller {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+/*數量*/
+
+#quantityDisplay {
+  color: #2C2C2C;      /* 金色 */
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 12px;
+}
+
+.quantity-controller button {
+  background: #D4AF37;
+  border: none;
+  color: #f2eeee;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #D4AF37;
+  transition: background 0.3s;
+}
+
+.quantity-controller button:hover {
+  background: #2C2C2C;
+}
+
+.quantity-controller span {
+  font-size: 1.2rem;
+  width: 2rem;
+  text-align: center;
+}
+
+/* Review Section Styles (from File One) */
+.review-section {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.review-section h2 {
+  color: #2C2C2C;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.review-input {
+  margin-top: 1rem;
+}
+
+.review-input textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  resize: none;
+  font-size: 1rem;
+  border: none;
+}
+
+.submit-review {
+  margin-top: 0.5rem;
+  background: #D4AF37;
+}
+
+.submit-review:hover {
+  background: #2C2C2C;
+}
+
+.review-list {
+  margin-top: 1rem;
+}
+
+.review-item {
+  border-top: 1px solid #D4AF37;
+  padding: 0.5rem 0;
+}
+
+.review-item .stars {
+  font-size: 1rem;
+}
+
+.container {
+  /* ... (保留原有 .container 的樣式) ... */
+  margin-top: 100px; /* 根據 header 實際高度調整，確保內容不會被遮擋 */
+}
+
+.site-footer {
+  background-color: #1A1A1A;
+  padding: 60px 20px;
+  margin-left: 0px;
+}
+
+.footer-box {
+  max-width: 1200px;
+  padding-left: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  color: #C0C0C0;
+}
+
+.footer-col {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-col a {
+  display: block;
+  color: #C0C0C0;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #D4AF37;
+}
+
+.footer-time {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #C0C0C0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #C0C0C0;
+  border-top: 1px solid #222;
+  padding-top: 16px;
+}
+/*複製*/
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  width: 220px;
+  background: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  display: none;
+  z-index: 2000;
+}
+
+.search-results div {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.search-results div:hover {
+  background-color: #D4AF37;
+  color: #121212;
+}
+
+.wishlist-btn:hover {
+    border-color: #D4AF37;
+    color: #D4AF37;
+}
+
+.wishlist-btn.active {
+    background: #fdf2f2; /* 淡淡的粉色背景 */
+    color: #e74c3c;    /* 愛心變紅色 */
+    border-color: #e74c3c;
+}
+
+#wishlistIcon {
+    font-size: 1.2rem;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* 評價區塊整體容器 */
+.review-display-section {
+  flex-direction: column; /* 讓總分跟列表上下排 */
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+.review-summary {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.review-summary h3 {
+  color: #2C2C2C;
+  margin-bottom: 15px;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#avg-score {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #D4AF37; /* 金色大字 */
+}
+
+.avg-stars {
+  color: #D4AF37;
+  letter-spacing: 2px;
+}
+
+#total-reviews-count {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 評論列表樣式 */
+.review-list {
+  width: 100%;
+}
+
+.individual-review {
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #2C2C2C;
+}
+
+.review-date {
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+.review-stars {
+  color: #D4AF37;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.review-content {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}

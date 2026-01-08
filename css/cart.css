@@ -1,0 +1,608 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* Body Styles */
+body {
+  background-color: #F8F8F8;
+  color: #C0C0C0;
+}
+
+/* 卡頭複製 */
+header {
+  background: linear-gradient(to right, #D4AF37, #D4AF37);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* 關鍵 */
+  border-bottom: 2px solid #D4AF37;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1A1A1A;
+  letter-spacing: 2px;
+  
+}
+
+header h1 a {
+  color: #1A1A1A;
+  text-decoration: none;
+  position: relative;
+  top: 12px; /* 往下微調，負數往上 */
+}
+
+header h1 a:hover {
+  color: #2C2C2C; 
+}
+
+.header-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #2C2C2C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f2eeee;
+}
+
+.search-bar {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+    .container {
+      max-width: 1200px;
+      margin: 10rem auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #D4AF37;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 1rem;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-info h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .item-info p {
+      margin: 0.2rem 0;
+      color: #cccccc;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+
+    .quantity-btn {
+      width: 28px;
+      height: 28px;
+      background: #D4AF37;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #2C2C2C;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .quantity-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .quantity-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .quantity-btn:disabled:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: none;
+    }
+
+    .quantity-display {
+      margin: 0 12px;
+      min-width: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .remove-btn {
+      background: #fa5a5a;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: #f31919;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #D4AF37;
+      margin-top: 1.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+.clear-btn {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+.clear-btn:hover {
+    background: #333;
+    color: #fff;
+}
+
+    .checkout-btn {
+      background: #D4AF37;
+      color: white;
+      box-shadow: 0 0 5px #D4AF37;
+    }
+
+    .checkout-btn:hover {
+      background: #c79902;
+      transform: translateY(-2px);
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+      display: inline-block;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .back-btn:hover {
+      color: #D4AF37;
+    }
+
+.site-footer {
+  background-color: #1A1A1A;
+  padding: 60px 20px;
+  margin-left: 0px;
+}
+
+.footer-box {
+  max-width: 1200px;
+  padding-left: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  color: #C0C0C0;
+}
+
+.footer-col {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-col a {
+  display: block;
+  color: #C0C0C0;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #D4AF37;
+}
+
+.footer-time {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #C0C0C0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #C0C0C0;
+  border-top: 1px solid #222;
+  padding-top: 16px;
+}
+/*複製*/
+.search-wrapper {
+  position: relative;
+  left: 24px; /* 往右移 20px，可自己調整 */
+}
+
+.search-results {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  width: 220px;
+  background: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  display: none;
+  z-index: 2000;
+}
+
+.search-results div {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.search-results div:hover {
+  background-color: #D4AF37;
+  color: #121212;
+}
+
+/* 保留你原本的所有樣式，並增加/修改以下內容 */
+
+/* 佈局調整 */
+.container {
+  max-width: 1200px;
+  margin: 10rem auto;
+  padding: 2rem;
+}
+
+.cart-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* 左側：完全套用 checkout-section 風格 */
+.cart-left {
+    flex: 2.5;
+    background: #1e1e1e !important; /* 結帳頁面的深色背景 */
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 2.5rem !important;
+    border-radius: 4px;
+}
+
+.cart-left h1 {
+    color: #D4AF37 !important;
+    font-size: 1.4rem !important; /* 與右側訂單資訊 h2 對齊 */
+    text-align: left !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: bold;
+    border-left: 4px solid #D4AF37;
+    padding-left: 10px;
+}
+
+.cart-right {
+    flex: 1;
+    position: sticky;
+    top: 120px;
+}
+
+/* 進度條 Stepper */
+.stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.step { text-align: center; color: #666; }
+.step.active { color: #D4AF37; }
+.step span {
+  display: inline-block;
+  width: 30px; height: 30px;
+  background: #444; color: #fff;
+  border-radius: 50%;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.step.active span { background: #D4AF37; color: #2C2C2C; }
+.line { width: 60px; height: 1px; background: #444; margin: 0 15px; margin-bottom: 20px;}
+
+/* 購物車表格標題 */
+.cart-header-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.cart-item h2 {
+    font-size: 1rem !important; /* 商品名稱 */
+    font-weight: 500;
+}
+
+.col-info { flex: 2; }
+.col-price, .col-qty, .col-sub { flex: 1; text-align: center; }
+
+.col-price, .col-sub {
+    font-size: 1rem !important; /* 單價與小計 */
+}
+
+/* 訂單資訊 Box */
+.summary-box {
+    background: #1e1e1e; /* 確保與左側一致或維持深色 */
+    padding: 1.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.summary-box h2 {
+    color: #D4AF37;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.section-h2 {
+    color: #D4AF37;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #D4AF37;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+.summary-links a {
+    font-size: 1rem; /* 優惠券文字也改大 */
+    color: #D4AF37; /* 改為金色系呼應主題 */
+    text-decoration: underline;
+    margin-bottom: 0.8rem;
+}
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #D4AF37;
+}
+
+/* 優惠提示 */
+.promo-hint-box {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.badge {
+    border: 1px solid #fa5a5a;
+    color: #fa5a5a;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+/* 結帳按鈕 */
+.checkout-btn {
+    width: 100%;
+    background: #dbae1e !important; 
+    color: white;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #D4AF37 !important;
+}
+
+.points-text { text-align: right; font-size: 0.8rem; margin-top: 10px; color: #888; }
+
+/* 修正原本的 cart-item 寬度 */
+.cart-item { display: flex; align-items: center; }
+.item-info { flex: 2; display: flex; align-items: center; }
+.cart-item img { width: 70px; margin-right: 1rem; }
+
+.form-group label {
+    display: block;
+    color: #ccc !important; /* 與右側文字顏色一致 */
+    margin-bottom: 10px !important;
+    font-size: 1rem !important; /* 關鍵：設定為 1rem */
+    font-weight: 500 !important;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: #252525 !important;
+    border: 1px solid #3d3d3d !important;
+    border-radius: 6px !important;
+    padding: 12px 15px !important;
+    font-size: 1rem !important; /* 輸入文字也對齊為 1rem */
+    color: #fff !important;
+    transition: all 0.3s ease;
+}
+
+.form-check label, 
+.form-check-styled label {
+    font-size: 0.95rem !important;
+    color: #aaa;
+}
+
+/* 外層容器 */
+.split-style {
+    display: flex;
+    gap: 0; /* 左右緊貼 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* 左側：深色區塊 */
+.dark-mode-box {
+    flex: 1.5;
+    background-color: #1a1a1a !important; /* 深黑底 */
+    padding: 40px !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.dark-mode-box h1 {
+    color: #D4AF37 !important;
+    border-left: 4px solid #D4AF37;
+    padding-left: 15px;
+    margin-bottom: 2rem !important;
+}
+
+/* 右側：白色區塊 */
+.white-mode-box {
+    flex: 1;
+    background-color: #ffffff !important; /* 純白底 */
+    padding: 40px !important;
+    color: #333 !important;
+}
+
+.white-mode-box .summary-box {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.summary-title {
+    color: #333 !important; /* 白色區塊的標題改為深色 */
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+.summary-line {
+    color: #666 !important;
+    margin-bottom: 15px;
+}
+
+.summary-total {
+    border-top: 2px solid #eee !important;
+    padding-top: 20px;
+    color: #D4AF37 !important;
+    font-size: 1.8rem !important;
+}
+
+/* 結帳按鈕風格同步 */
+.checkout-btn {
+    background-color: #D4AF37 !important; 
+    color: #fff !important;
+    width: 100%;
+    border-radius: 4px !important;
+    padding: 15px !important;
+    font-size: 1.1rem !important;
+    box-shadow: none !important;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #D4AF37 !important;
+}
+
+/* 返回按鈕在白色背景下的顏色 */
+.white-mode-box .back-btn {
+    color: #999 !important;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.white-mode-box .back-btn:hover {
+    color: #D4AF37 !important;
+}
+
+/* 點數文字顏色修正 */
+.points-text {
+    color: #999 !important;
+}

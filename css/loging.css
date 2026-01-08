@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* Body Styles */
+body {
+  background-color: #F8F8F8;
+  color: #C0C0C0;
+}
+
+/* 卡頭複製 */
+header {
+  background: linear-gradient(to right, #D4AF37, #D4AF37);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* 關鍵 */
+  border-bottom: 2px solid #D4AF37;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1A1A1A;
+  letter-spacing: 2px;
+  
+}
+
+header h1 a {
+  color: #1A1A1A;
+  text-decoration: none;
+  position: relative;
+  top: 0.5px; /* 往下微調，負數往上 */
+}
+
+header h1 a:hover {
+  color: #2C2C2C; 
+}
+
+.header-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #2C2C2C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f2eeee;
+}
+    .container {
+      background: #2C2C2C;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #2C2C2C;
+      width: 100%;
+      max-width: 400px;
+      margin: 140px auto 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 5;
+    }
+
+    h2 {
+      text-align: center;
+      color: #D4AF37;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #D4AF37;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .toggle a {
+      color: #D4AF37;
+      text-decoration: none;
+    }
+
+    .decorative-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(hotpink 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.05;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #2C2C2C;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+.site-footer {
+  background-color: #1A1A1A;
+  padding: 60px 20px;
+  margin-left: 0px;
+}
+
+.footer-box {
+  max-width: 1200px;
+  padding-left: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  color: #C0C0C0;
+}
+
+.footer-col {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-col a {
+  display: block;
+  color: #C0C0C0;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #D4AF37;
+}
+
+.footer-time {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #C0C0C0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #C0C0C0;
+  border-top: 1px solid #222;
+  padding-top: 16px;
+}
+/*複製*/
+.search-wrapper {
+  position: relative;
+  left: 2px; /* 往右移 20px，可自己調整 */
+}
+
+/* 搜尋結果下拉選單也應配合調整 */
+.search-results {
+  position: absolute;
+  top: 45px; /* 稍微往下移一點 */
+  left: 15px;
+  width: 250px;
+  background: #1A1A1A;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  display: none;
+  z-index: 2000;
+  overflow: hidden; /* 確保內容不會超出圓角 */
+}
+.search-results div {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  text-align: left; /* 確保文字靠左 */
+}
+
+.search-results div:hover {
+  background-color: #D4AF37;
+  color: #121212;
+}
+
+/* 將這段放在 CSS 檔案的最下面 */
+.search-bar {
+  width: 240px !important;
+  height: 33px !important;    /* 固定高度確保弧度對稱 */
+  padding: 0 20px !important;
+  border-radius: 50px !important; /* 超大圓角確保呈現膠囊狀 */
+  
+  /* 徹底移除框線 */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  font-size: 0.9rem !important;
+  margin-right: 1.5rem;
+}
+
+/* 點擊時的樣式：依然不准出現框線 */
+.search-bar:focus {
+  outline: none !important;
+  border: none !important;
+  background-color: #3d3d3d !important; /* 點擊時顏色稍微變亮 */
+}

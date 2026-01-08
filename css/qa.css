@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* Body Styles */
+body {
+  background-color: #F8F8F8;
+  color: #C0C0C0;
+}
+
+/* 卡頭複製 */
+header {
+  background: linear-gradient(to right, #D4AF37, #D4AF37);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #D4AF37;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1001;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1A1A1A;
+  letter-spacing: 2px;
+}
+
+header h1 a {
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+header h1 a:hover {
+  color: #2C2C2C; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #2C2C2C;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f2eeee;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.search-bar {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+/* Main content */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Serif TC', serif;
+  text-align: center; /* 除 header 外置中 */
+  background-color: #fff;
+  color: #444;
+}
+
+main {
+  padding: 140px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2.service-title {
+  font-size: 30px;
+  color: #222;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.service-box h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 段落與列表維持左對齊 */
+.service-box p,
+.service-box ul {
+  text-align: left;
+  line-height: 1.8;
+}
+
+.service-box ul {
+  padding-left: 20px;
+}
+
+.service-box li {
+  margin-bottom: 12px;
+}
+
+/*複製*/
+
+.site-footer {
+  background-color: #1A1A1A;
+  padding: 60px 20px;
+  margin-left: 0px;
+}
+
+.footer-box {
+  max-width: 1200px;
+  padding-left: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  color: #C0C0C0;
+}
+
+.footer-col {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-col h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-col a {
+  display: block;
+  color: #C0C0C0;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #D4AF37;
+}
+
+.footer-time {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #C0C0C0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #C0C0C0;
+  border-top: 1px solid #222;
+  padding-top: 16px;
+}
+/*複製*/
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  width: 220px;
+  background: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  display: none;
+  z-index: 2000;
+}
+
+.search-results div {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.search-results div:hover {
+  background-color: #D4AF37;
+  color: #121212;
+}
