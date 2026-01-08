@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K-Chords | K-和弦</title>
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1><a href="index.html">K-Chords | K-和弦</a></h1>
+      <div class="nav-container">
+        <div class="search-wrapper">
+          <input type="text" id="searchInput" class="search-bar" placeholder="搜尋商品、團名、商品類型..." />
+          <div id="searchResults" class="search-results"></div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="cart.html">購物車</a></li>
+            <li><a href="loging.html">會員註冊/登入</a></li>
+            <li><a href="member.html">會員資料</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="stepper">
+      <div class="step"><span>1</span><p>購物車</p></div>
+      <div class="line"></div>
+      <div class="step active"><span>2</span><p>填寫資料</p></div>
+      <div class="line"></div>
+      <div class="step"><span>3</span><p>訂單確認</p></div>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-left">
+        <section class="checkout-section">
+          <h2 class="section-h2">顧客資料</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>顧客名稱 <span class="required">*</span></label>
+              <input type="text" placeholder="請輸入姓名" id="custName">
+            </div>
+            <div class="form-group">
+              <label>電話號碼 <span class="required">*</span></label>
+              <input type="tel" placeholder="0912345678" id="custPhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>電子信箱 <span class="required">*</span></label>
+            <input type="email" placeholder="example@mail.com" id="custEmail">
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <h2 class="section-h2">送貨資料</h2>
+          <div class="form-check-styled">
+            <input type="checkbox" id="sameAsCustomer">
+            <label for="sameAsCustomer">收件人資料與顧客資料相同</label>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>收件人姓名</label>
+              <input type="text" placeholder="請輸入真實姓名" id="shipName">
+            </div>
+            <div class="form-group">
+              <label>收件人電話</label>
+              <input type="tel" placeholder="0912345678" id="shipPhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>7-11取貨門市</label>
+            <input type="text" id="shipStore" placeholder="例如：7-11 萬達門市 (門市號：123456)" style="width: 100%; padding: 12px; background: #252525; border: 1px solid #3d3d3d; border-radius: 4px; color: #fff;">
+          </div>
+        </section>
+      </div>
+
+      <div class="cart-right">
+        <div class="summary-box">
+          <h2>訂單資訊</h2>
+          <div id="checkoutSummaryList"></div>
+          <div class="summary-line"><span>小計：</span><span id="subtotalText">$0</span></div>
+          <div class="summary-line"><span>運費：</span><span id="shippingDisplay">NT$65</span></div>
+          <div class="summary-total">
+            <span>合計：</span>
+            <span id="totalText">$0</span>
+          </div>
+          
+          <div class="form-check" style="margin: 1rem 0;">
+            <input type="checkbox" id="agreeTerms">
+            <label for="agreeTerms" style="font-size: 0.8rem;">我同意網站服務條款及隱私政策</label>
+          </div>
+          
+          <button class="checkout-btn" id="submitOrder" style="background: #D4AF37;">提交訂單</button>
+        </div>
+        <a href="cart.html" class="back-btn">← 返回購物車修改</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const summaryList = document.getElementById("checkoutSummaryList");
+      const subtotalText = document.getElementById("subtotalText");
+      const totalText = document.getElementById("totalText");
+      const shippingDisplay = document.getElementById("shippingDisplay");
+
+      // 1. 顯示訂單摘要
+      function renderSummary() {
+        if (cart.length === 0) {
+          window.location.href = "cart.html";
+          return;
+        }
+
+        let total = 0;
+        summaryList.innerHTML = "";
+        cart.forEach(item => {
+          total += item.price * item.quantity;
+          const div = document.createElement("div");
+          div.className = "checkout-item-mini";
+          div.innerHTML = `<span>${item.name} <small>x ${item.quantity}</small></span><span style="color: #ccc; font-weight: bold;">$${item.price * item.quantity}</span>`;
+          summaryList.appendChild(div);
+        });
+
+        const threshold = 1200;
+        const shippingFee = (total >= threshold) ? 0 : 65;
+        
+        subtotalText.textContent = `$${total}`;
+        shippingDisplay.textContent = shippingFee === 0 ? "免運費" : `NT$${shippingFee}`;
+        if (shippingFee === 0) shippingDisplay.style.color = "#7CB342";
+        totalText.textContent = `NT$${total + shippingFee}`;
+      }
+
+      // 2. 資料同步功能
+      const sameAsCustomer = document.getElementById("sameAsCustomer");
+      const custName = document.getElementById("custName");
+      const custPhone = document.getElementById("custPhone");
+      const shipName = document.getElementById("shipName");
+      const shipPhone = document.getElementById("shipPhone");
+
+      sameAsCustomer.addEventListener("change", () => {
+        if (sameAsCustomer.checked) {
+          shipName.value = custName.value;
+          shipPhone.value = custPhone.value;
+        } else {
+          shipName.value = "";
+          shipPhone.value = "";
+        }
+      });
+
+      // 3. 提交訂單與驗證
+      document.getElementById("submitOrder").addEventListener("click", () => {
+        const custEmail = document.getElementById("custEmail").value;
+        const shipStore = document.getElementById("shipStore").value;
+        const agree = document.getElementById("agreeTerms").checked;
+
+        // 驗證規則
+        const emailRule = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRule = /^09\d{8}$/;
+
+        if (!custName.value || !custPhone.value || !custEmail || !shipStore) {
+          alert("請填寫所有必填欄位 (*) 並輸入取貨門市");
+          return;
+        }
+
+        if (!phoneRule.test(custPhone.value)) {
+          alert("手機號碼格式錯誤 (請輸入 10 位數字，例如 0912345678)");
+          return;
+        }
+
+        if (!emailRule.test(custEmail)) {
+          alert("電子信箱格式錯誤");
+          return;
+        }
+
+        if (!agree) {
+          alert("請先勾選同意服務條款");
+          return;
+        }
+
+        // 收集資料
+        const orderInfo = {
+          customerName: custName.value,
+          customerPhone: custPhone.value,
+          customerEmail: custEmail,
+          shippingName: shipName.value || custName.value,
+          shippingPhone: shipPhone.value || custPhone.value,
+          storeName: shipStore,
+          paymentMethod: "7-11 取貨付款",
+          items: cart,
+          totalAmount: totalText.textContent
+        };
+
+        localStorage.setItem("finalOrder", JSON.stringify(orderInfo));
+        window.location.href = "submit.html";
+      });
+
+      renderSummary();
+    });
+
+// 1. 先定義商品清單 (確保包含所有想被搜到的商品)
+const products = [
+  { id: 1, name: "CORTIS - THE 1ST EP [COLOR OUTSIDE THE LINES]" },
+  { id: 2, name: "RIIZE - 2ND SINGLE [FAME] 單曲二輯" },
+  { id: 3, name: "YEONJUN(TXT) NO LABELS: PART 01" },
+  { id: 4, name: "IVE - THE 4TH EP [IVE SECRET]" },
+  { id: 6, name: "CORTIS - 2026 年曆組合" },
+  { id: 7, name: "NMIXX - 2026 年曆組合" },
+  { id: 8, name: "TXT - 2026 年曆組合" },
+  { id: 9, name: "IZNA - 2026 年曆組合" },
+  { id: 10, name: "KISS OF LIFE - 2026 年曆組合" },
+  { id: 11, name: "NEWJEANS OFFICIAL LIGHT STICK 官方應援手燈" },
+  { id: 12, name: "LE SSERAFIM OFFICIAL LIGHT STICK 官方應援手燈" },
+  { id: 13, name: "BTS OFFICIAL LIGHT STICK 第三代官方應援手燈" },
+  { id: 14, name: "SEVENTEEN OFFICIAL LIGHT STICK 第三代官方應援手燈" }
+];
+
+// 2. 搜尋邏輯 (字串比對)
+const input = document.getElementById("searchInput");
+const resultBox = document.getElementById("searchResults");
+
+input.addEventListener("input", function () {
+  const keyword = input.value.toLowerCase().trim();
+  resultBox.innerHTML = "";
+  
+  if (!keyword) {
+    resultBox.style.display = "none";
+    return;
+  }
+
+  // 直接對 name 進行字串包含比對
+  const matches = products.filter(p => 
+    p.name.toLowerCase().includes(keyword)
+  );
+
+  if (matches.length === 0) {
+    resultBox.innerHTML = '<div style="padding:10px; color:#888;">找不到相關商品</div>';
+  } else {
+    matches.forEach(p => {
+      const div = document.createElement("div");
+      div.textContent = p.name;
+      div.onclick = () => {
+        window.location.href = `product.html?id=${p.id}`;
+      };
+      resultBox.appendChild(div);
+    });
+  }
+  resultBox.style.display = "block";
+});
+
+// 點擊空白處關閉
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".search-wrapper")) {
+    resultBox.style.display = "none";
+  }
+});
+  </script>
+
+    <footer class="site-footer">
+    <div class="footer-box">
+      <div class="footer-col">
+        <h3>K-Chords | K-和弦</h3>
+        <a href="https://www.instagram.com/uyhnz/" target="_blank">IG:K.Chords_official</a>
+        <p>商品問題也可以來這裡詢問</p>
+        <a href="aboutus.html">關於我們</a>
+      </div>
+      <div class="footer-col">
+        <h3>SERVICE</h3>
+        <a href="afterservice.html">退換貨服務 After-sales service</a>
+        <a href="qa.html">常見問題 Q&A</a>
+      </div>
+      <div class="footer-col">
+        <h3>COMPANY</h3>
+        <a href="contact.html">聯絡我們</a>
+        <a href="cooperate.html">合作洽談</a>
+        <a href="privacy.html">隱私政策</a>
+        <a href="anti-fraud.html">反詐騙公告</a>
+        <p class="footer-time">客服時間 Mon.–Fri. 10:00–18:00 (不含例假日)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 K-Chords | K-和弦 All rights reserved.
+    </div>
+  </footer>
+
+</body>
+
+</html>
